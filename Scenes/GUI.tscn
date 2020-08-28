@@ -1,0 +1,60 @@
+[gd_scene format=2]
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -49.9999
+margin_bottom = 6.10352e-05
+rect_min_size = Vector2( 1280, 40 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_right = 1264.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Speed" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_right = 630.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Speed"
+
+[node name="Value" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+margin_left = 634.0
+margin_right = 1264.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "0"
+align = 2
+
+[node name="Speed" type="HSlider" parent="Panel/VBoxContainer"]
+margin_top = 18.0
+margin_right = 1264.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
