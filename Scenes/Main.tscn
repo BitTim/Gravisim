@@ -5,6 +5,7 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
+numObjects = 10
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -19,16 +20,17 @@ __meta__ = {
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Object" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 451.052, 175.129 )
-radius = 10
-mass = 30
-
-[node name="Object2" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 166.31, 297.341 )
-radius = 50
-mass = 100
+position = Vector2( 131.093, 229.404 )
+mass = 150
+dir = Vector2( 0, -1 )
+speed = 150
 
 [node name="Object3" parent="Objects" instance=ExtResource( 2 )]
-position = Vector2( 228.046, 112.133 )
-radius = 5
+position = Vector2( 81.5194, 228.131 )
 mass = 2
+dir = Vector2( 0, -1 )
+speed = 200
+
+[node name="Object2" parent="Objects" instance=ExtResource( 2 )]
+position = Vector2( 318.229, 230.191 )
+mass = 5000
