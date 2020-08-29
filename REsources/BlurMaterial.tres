@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float blur_amount : hint_range(0, 5);
+uniform vec4  bgColor : hint_color;
+
+void fragment() {
+	vec4 b = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount);
+	COLOR = (bgColor * 0.5f) + (b * 0.5f);
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/blur_amount = 3.0
+shader_param/bgColor = Color( 1, 1, 1, 1 )
