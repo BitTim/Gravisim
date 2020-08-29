@@ -1,18 +1,20 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=3]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 numObjects = 10
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1280.0
-margin_bottom = 720.0
 color = Color( 0.00392157, 0.0196078, 0.0588235, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -20,17 +22,6 @@ __meta__ = {
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 532.978
-margin_top = 16.6555
-margin_right = 596.978
-margin_bottom = 80.6555
-texture = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 3 )]
-margin_bottom = 6.10352e-05

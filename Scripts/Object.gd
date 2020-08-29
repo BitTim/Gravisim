@@ -20,6 +20,7 @@ var accel = Vector2()
 var col = Color()
 
 var rng = RandomNumberGenerator.new()
+onready var res = get_viewport().size
 
 # ================================
 # Utility
@@ -75,15 +76,15 @@ func move(delta):
 	if collision != null:
 		collide(collision.collider)
 	
-	if (position.y + radius >= 720):
+	if (position.y + radius >= res.y):
 		vel.y = -vel.y
-		position.y = 719 - radius
+		position.y = res.y - 1 - radius
 	if (position.y - radius < 0):
 		vel.y = -vel.y
 		position.y = radius
-	if (position.x + radius >= 1280):
+	if (position.x + radius >= res.x):
 		vel.x = -vel.x
-		position.x = 1279 - radius
+		position.x = res.x - 1 - radius
 	if (position.x - radius < 0):
 		vel.x = -vel.x
 		position.x = radius
