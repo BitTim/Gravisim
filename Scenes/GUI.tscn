@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://REsources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://REsources/BlurMaterial.tres" type="Material" id=2]
@@ -10,22 +10,199 @@
 [ext_resource path="res://Icons/pReset.png" type="Texture" id=8]
 [ext_resource path="res://Icons/pSpeed.png" type="Texture" id=9]
 [ext_resource path="res://Icons/nSpeed.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "menuClose"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Menu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 16, 16 ), Vector2( -640, 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TopBar:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 408, 160 ), Vector2( 1048, 160 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TopBar:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 656, 16 ), Vector2( 16, 16 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("EditButton:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 656, 1584 ), Vector2( 16, 1584 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AddButton:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 868, 1584 ), Vector2( 744, 1584 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("EditButton:rect_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 196, 320 ), Vector2( 320, 320 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AddButton:rect_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 196, 320 ), Vector2( 320, 320 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "menuOpen"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Menu:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( -640, 16 ), Vector2( 16, 16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TopBar:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 1048, 160 ), Vector2( 408, 160 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TopBar:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 16, 16 ), Vector2( 656, 16 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("EditButton:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 16, 1584 ), Vector2( 656, 1584 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AddButton:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 744, 1584 ), Vector2( 868, 1584 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("EditButton:rect_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 320 ), Vector2( 196, 320 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AddButton:rect_size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 320 ), Vector2( 196, 320 ) ]
+}
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TopBar" type="Panel" parent="."]
 material = ExtResource( 2 )
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 1272.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 0, 80 )
+anchor_right = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 0, 160 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,37 +210,87 @@ __meta__ = {
 [node name="Container" type="HBoxContainer" parent="TopBar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 948.0
+margin_bottom = 420.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Reset" type="TextureButton" parent="TopBar/Container"]
 margin_right = 500.0
-margin_bottom = 500.0
+margin_bottom = 580.0
 size_flags_horizontal = 3
+toggle_mode = true
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 8 )
 
 [node name="Zoom" type="TextureButton" parent="TopBar/Container"]
 margin_left = 504.0
 margin_right = 1004.0
-margin_bottom = 500.0
+margin_bottom = 580.0
 size_flags_horizontal = 3
+toggle_mode = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 6 )
 
 [node name="Speed" type="TextureButton" parent="TopBar/Container"]
 margin_left = 1008.0
 margin_right = 1508.0
-margin_bottom = 500.0
+margin_bottom = 580.0
 size_flags_horizontal = 3
+toggle_mode = true
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 9 )
 
 [node name="Pause" type="TextureButton" parent="TopBar/Container"]
 margin_left = 1512.0
 margin_right = 2012.0
-margin_bottom = 500.0
+margin_bottom = 580.0
 size_flags_horizontal = 3
+toggle_mode = true
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 7 )
+
+[node name="EditButton" type="Panel" parent="."]
+material = ExtResource( 2 )
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -336.0
+margin_right = 336.0
+margin_bottom = -15.9999
+rect_min_size = Vector2( 0, 320 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddButton" type="Panel" parent="."]
+material = ExtResource( 2 )
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -336.0
+margin_top = -336.0
+margin_right = -16.0
+margin_bottom = -15.9999
+rect_min_size = Vector2( 0, 320 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Panel" parent="."]
+material = ExtResource( 2 )
+anchor_bottom = 1.0
+margin_left = -640.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -15.9999
+rect_min_size = Vector2( 0, 1888 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/menuClose = SubResource( 1 )
+anims/menuOpen = SubResource( 2 )

@@ -28,16 +28,12 @@ onready var res = get_viewport().size
 
 func _ready():
 	rng.randomize()
-	
-	radius = getRadius()
 	vel = dir * speed
-	
-	var shape = CircleShape2D.new()
-	shape.set_radius(radius)
-	$CollisionShape2D.shape = shape
 	
 	col = Color(rng.randf_range(0.5, 1), rng.randf_range(0.5, 1), rng.randf_range(0.5, 1), 1)
 	$CanvasLayer/Line2D.default_color= col
+	
+	updateValues(mass)
 
 func _draw():
 	draw_circle(Vector2(), radius, col)
