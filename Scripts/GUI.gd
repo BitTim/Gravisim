@@ -1,7 +1,9 @@
 extends Control
 
+onready var res = get_viewport().size
+
 func _ready():
-	$TopBar/Container/Reset.connect("toggled", self, "onMenuToggled")
+	$TopBar/Container/Menu.connect("toggled", self, "onMenuToggled")
 
 func onMenuToggled(state):
 	if state:
