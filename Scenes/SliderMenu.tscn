@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://REsources/BlurMaterial.tres" type="Material" id=1]
+[ext_resource path="res://Icons/nReset.png" type="Texture" id=2]
+[ext_resource path="res://REsources/Theme.tres" type="Theme" id=3]
+
+[node name="SliderMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -3223.8, 190.308 )
+mouse_filter = 2
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="Panel" parent="."]
+material = ExtResource( 1 )
+anchor_right = 1.0
+margin_left = 16.0
+margin_top = 208.0
+margin_right = -16.0
+margin_bottom = 528.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer"]
+margin_right = 1048.0
+margin_bottom = 104.0
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="Content/VBoxContainer/HBoxContainer"]
+margin_top = 35.0
+margin_right = 522.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+text = "Speed"
+
+[node name="Value" type="Label" parent="Content/VBoxContainer/HBoxContainer"]
+margin_left = 526.0
+margin_top = 35.0
+margin_right = 1048.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+text = "100%"
+
+[node name="HSlider" type="HSlider" parent="Content/VBoxContainer"]
+margin_top = 108.0
+margin_right = 1048.0
+margin_bottom = 124.0
+size_flags_vertical = 2
+min_value = 0.1
+max_value = 1000.0
+step = 0.1
+value = 100.0
+
+[node name="Button" type="Button" parent="Content/VBoxContainer"]
+margin_top = 216.0
+margin_right = 1048.0
+margin_bottom = 320.0
+size_flags_vertical = 3
+text = "Reset"
+icon = ExtResource( 2 )
+flat = true
+expand_icon = true

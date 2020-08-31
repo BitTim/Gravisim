@@ -20,7 +20,7 @@ var accel = Vector2()
 var col = Color()
 
 var rng = RandomNumberGenerator.new()
-onready var res = get_viewport().size
+onready var res = Vector2(1080, 1920)
 
 # ================================
 # Utility

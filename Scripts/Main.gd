@@ -12,7 +12,7 @@ var objs = null
 var rng = RandomNumberGenerator.new()
 var objScene = preload("res://Scenes/Object.tscn")
 
-onready var res = get_viewport().size
+onready var res = Vector2(1080, 1920)
 
 func _ready():
 	rng.randomize()
