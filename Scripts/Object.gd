@@ -72,18 +72,18 @@ func move(delta):
 	if collision != null:
 		collide(collision.collider)
 	
-	if (position.y + radius >= res.y):
-		vel.y = -vel.y
-		position.y = res.y - 1 - radius
-	if (position.y - radius < 0):
-		vel.y = -vel.y
-		position.y = radius
-	if (position.x + radius >= res.x):
-		vel.x = -vel.x
-		position.x = res.x - 1 - radius
-	if (position.x - radius < 0):
-		vel.x = -vel.x
-		position.x = radius
+	#if (position.y + radius >= res.y):
+	#	vel.y = -vel.y
+	#	position.y = res.y - 1 - radius
+	#if (position.y - radius < 0):
+	#	vel.y = -vel.y
+	#	position.y = radius
+	#if (position.x + radius >= res.x):
+	#	vel.x = -vel.x
+	#	position.x = res.x - 1 - radius
+	#if (position.x - radius < 0):
+	#	vel.x = -vel.x
+	#	position.x = radius
 	
 	updateLine()
 

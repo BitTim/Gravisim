@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://REsources/BlurMaterial.tres" type="Material" id=1]
 [ext_resource path="res://Icons/nReset.png" type="Texture" id=2]
 [ext_resource path="res://REsources/Theme.tres" type="Theme" id=3]
+[ext_resource path="res://Icons/pReset.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/SliderMenu.gd" type="Script" id=5]
 
 [node name="SliderMenu" type="Control"]
 anchor_right = 1.0
@@ -10,65 +12,75 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -3223.8, 190.308 )
 mouse_filter = 2
 theme = ExtResource( 3 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Content" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="."]
 material = ExtResource( 1 )
 anchor_right = 1.0
 margin_left = 16.0
 margin_top = 208.0
 margin_right = -16.0
-margin_bottom = 528.0
+margin_bottom = 368.0
 mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Content"]
+[node name="Content" type="VBoxContainer" parent="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer"]
+[node name="Labels" type="HBoxContainer" parent="Panel/Content"]
 margin_right = 1048.0
-margin_bottom = 104.0
+margin_bottom = 76.0
 size_flags_vertical = 3
 
-[node name="Title" type="Label" parent="Content/VBoxContainer/HBoxContainer"]
-margin_top = 35.0
+[node name="Title" type="Label" parent="Panel/Content/Labels"]
+margin_top = 13.0
 margin_right = 522.0
-margin_bottom = 68.0
+margin_bottom = 62.0
 size_flags_horizontal = 3
 text = "Speed"
 
-[node name="Value" type="Label" parent="Content/VBoxContainer/HBoxContainer"]
+[node name="Value" type="Label" parent="Panel/Content/Labels"]
 margin_left = 526.0
-margin_top = 35.0
+margin_top = 13.0
 margin_right = 1048.0
-margin_bottom = 68.0
+margin_bottom = 62.0
 size_flags_horizontal = 3
 text = "100%"
+align = 2
 
-[node name="HSlider" type="HSlider" parent="Content/VBoxContainer"]
-margin_top = 108.0
+[node name="Interactive" type="HBoxContainer" parent="Panel/Content"]
+margin_top = 80.0
 margin_right = 1048.0
-margin_bottom = 124.0
-size_flags_vertical = 2
+margin_bottom = 160.0
+size_flags_vertical = 3
+
+[node name="HSlider" type="HSlider" parent="Panel/Content/Interactive"]
+margin_right = 964.0
+margin_bottom = 80.0
+size_flags_horizontal = 7
+size_flags_vertical = 3
 min_value = 0.1
 max_value = 1000.0
 step = 0.1
 value = 100.0
+scrollable = false
 
-[node name="Button" type="Button" parent="Content/VBoxContainer"]
-margin_top = 216.0
+[node name="Button" type="TextureButton" parent="Panel/Content/Interactive"]
+margin_left = 968.0
 margin_right = 1048.0
-margin_bottom = 320.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
 size_flags_vertical = 3
-text = "Reset"
-icon = ExtResource( 2 )
-flat = true
-expand_icon = true
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+expand = true
+stretch_mode = 5
