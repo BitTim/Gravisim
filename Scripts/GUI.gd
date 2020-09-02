@@ -1,42 +1,66 @@
 extends Control
 
+signal zoomChanged(zoomAmount)
+signal speedChanged(speedMod)
+
 onready var res = get_viewport().size
 var dialogOpened = false
+
+var zoomAmount = 100
+var speedMod = 100
 
 func _ready():
 	$TopBar/Container/Menu.connect("toggled", self, "onMenuToggled")
 	$TopBar/Container/Zoom.connect("toggled", self, "onZoomToggled")
 	$TopBar/Container/Speed.connect("toggled", self, "onSpeedToggled")
+	
+	$SliderDiag.connect("value_changed", self, "onSliderChanged")
 
 func onMenuToggled(state):
 	if state:
-		if dialogOpened: hideDiags()
+		closeSliderDiag()
 		$AnimationPlayer.play("menuOpen")
 	else:
 		$AnimationPlayer.play("menuClose")
-	
 	yield($AnimationPlayer, "animation_finished")
 
 func onZoomToggled(state):
-	if dialogOpened: hideDiags()
-	
-	if state: $Dialogs/ZoomSlider.show()
-	else: $Dialogs/ZoomSlider.hide()
-	
-	dialogOpened = state
+	if state: 
+		$SliderDiag.title = "Zoom"
+		$SliderDiag.value = zoomAmount
+		openSliderDiag()
+	else: closeSliderDiag()
 
 func onSpeedToggled(state):
-	if dialogOpened: hideDiags()
-	
-	if state: $Dialogs/SpeedSlider.show()
-	else: $Dialogs/SpeedSlider.hide()
-	
-	dialogOpened = state
+	if state:
+		$SliderDiag.title = "Speed"
+		$SliderDiag.value = speedMod
+		openSliderDiag()
+	else: closeSliderDiag()
 
-func hideDiags():
-	for d in $Dialogs.get_children():
-		d.hide()
+func onSliderChanged(val):
+	match $SliderDiag.title:
+		"Zoom":
+			zoomAmount = val
+			emit_signal("zoomChanged", val / 100.0)
+		"Speed":
+			speedMod = val
+			emit_signal("speedChanged", val / 100.0)
+
+func openSliderDiag():
+	if dialogOpened:
+		$AnimationPlayer.play("sliderDiagClose")
+		yield($AnimationPlayer, "animation_finished")
 	
-	for b in $TopBar/Container.get_children():
-		if b == $TopBar/Container/Menu: continue
-		if b.pressed: b.pressed = false
+	$SliderDiag.init()
+	
+	$AnimationPlayer.play("sliderDiagOpen")
+	yield($AnimationPlayer, "animation_finished")
+	
+	dialogOpened = true
+
+func closeSliderDiag():
+	$AnimationPlayer.play("sliderDiagClose")
+	yield($AnimationPlayer, "animation_finished")
+	
+	dialogOpened = false

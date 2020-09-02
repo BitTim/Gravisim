@@ -10,7 +10,6 @@ void fragment() {
 	vec4 b = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount);
 	COLOR = (bgColor * 0.5f) + (b * 0.5f);
 }"
-custom_defines = ""
 
 [resource]
 shader = SubResource( 1 )

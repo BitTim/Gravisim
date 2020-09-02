@@ -31,7 +31,7 @@ func _ready():
 	vel = dir * speed
 	
 	col = Color(rng.randf_range(0.5, 1), rng.randf_range(0.5, 1), rng.randf_range(0.5, 1), 1)
-	$CanvasLayer/Line2D.default_color= col
+#	$Line2D.default_color= col
 	
 	updateValues(mass)
 
@@ -52,14 +52,15 @@ func updateValues(mass):
 	update()
 
 func updateLine():
-	if $CanvasLayer/Line2D.get_point_count() > LPT:
-		$CanvasLayer/Line2D.remove_point(0);
-	
-	if $CanvasLayer/Line2D.get_point_count() > 0:
-		if $CanvasLayer/Line2D.get_point_position($CanvasLayer/Line2D.get_point_count() - 1) != global_position:
-			$CanvasLayer/Line2D.add_point(global_position)
-	else:
-		$CanvasLayer/Line2D.add_point(global_position)
+#	if $Line2D.get_point_count() > LPT:
+#		$Line2D.remove_point(0);
+#	
+#	if $Line2D.get_point_count() > 0:
+#		if $Line2D.get_point_position($Line2D.get_point_count() - 1) != global_position:
+#			$Line2D.add_point(global_position)
+#	else:
+#		$Line2D.add_point(global_position)
+	pass
 
 # ================================
 # Movement
@@ -104,7 +105,7 @@ func collide(obj):
 # Gravity
 # ================================
 
-func applyGravity(objects, delta):
+func applyGravity(objects, speedMod, delta):
 	if immovable:
 		return
 	
@@ -115,7 +116,8 @@ func applyGravity(objects, delta):
 			continue
 		
 		var r = pow(position.distance_to(o.position), 2)
-		var F = G * (mass * o.mass) / r
+		var F = G * mass * o.mass * pow(speedMod, 2) / r
+		print(F)
 		F *= position.direction_to(o.position)
 		
 		force += F

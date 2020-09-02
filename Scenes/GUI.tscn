@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://REsources/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://REsources/BlurMaterial.tres" type="Material" id=2]
@@ -287,6 +287,62 @@ tracks/10/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "sliderDiagClose"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("SliderDiag:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -368 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SliderDiag:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "sliderDiagOpen"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("SliderDiag:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -368 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SliderDiag:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -365,7 +421,7 @@ anchor_bottom = 1.0
 margin_left = 16.0
 margin_top = -336.0
 margin_right = 336.0
-margin_bottom = -16.0
+margin_bottom = -15.9993
 rect_min_size = Vector2( 0, 320 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -388,7 +444,7 @@ anchor_bottom = 1.0
 margin_left = -336.0
 margin_top = -336.0
 margin_right = -16.0
-margin_bottom = -16.0
+margin_bottom = -15.9995
 rect_min_size = Vector2( 0, 320 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -417,19 +473,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SliderDiag" parent="." instance=ExtResource( 16 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = -368.0
+margin_bottom = -368.0
+title = "Speed"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/menuClose = SubResource( 1 )
 anims/menuOpen = SubResource( 2 )
-
-[node name="Dialogs" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-
-[node name="SpeedSlider" parent="Dialogs" instance=ExtResource( 16 )]
-visible = false
-title = "Speed"
-
-[node name="ZoomSlider" parent="Dialogs" instance=ExtResource( 16 )]
-visible = false
-title = "Zoom"
+anims/sliderDiagClose = SubResource( 3 )
+anims/sliderDiagOpen = SubResource( 4 )
