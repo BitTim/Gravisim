@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://REsources/BlurMaterial.tres" type="Material" id=1]
+[ext_resource path="res://Resources/BlurMaterial.tres" type="Material" id=1]
 [ext_resource path="res://Icons/nReset.png" type="Texture" id=2]
-[ext_resource path="res://REsources/Theme.tres" type="Theme" id=3]
+[ext_resource path="res://Resources/Theme.tres" type="Theme" id=3]
 [ext_resource path="res://Icons/pReset.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/SliderMenu.gd" type="Script" id=5]
+
 
 [node name="SliderMenu" type="Control"]
 anchor_right = 1.0
